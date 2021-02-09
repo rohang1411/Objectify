@@ -7,8 +7,6 @@ import 'package:image/image.dart' as img;
 import 'package:flutter/services.dart';
 
 void main() {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(MyApp());
 }
 
@@ -141,7 +139,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                             TextSpan(
                                                 text: "O B J E C T I F Y",
                                                 style: boldStyle(context)),
-                                            // TextSpan(text: 'Detect', style: normalStyle(context))
                                           ]))),
                                       margin: EdgeInsets.all(40),
                                       decoration: BoxDecoration(
@@ -224,9 +221,6 @@ class _DetectorPageState extends State<DetectorPage> {
       _busy = true;
     });
     await predictImage(image);
-    // print('recognitions');
-    // print(recognitions);
-    // print(recognitions[0]);
   }
 
   selectFromImagePickerCAMERA() async {
@@ -237,8 +231,6 @@ class _DetectorPageState extends State<DetectorPage> {
       _busy = true;
     });
     var x = await predictImage(image);
-    // x.then(print(recognitions));
-    // print(recognitions[0]['detectedClass']);
   }
 
   predictImage(var image) async {
@@ -276,7 +268,7 @@ class _DetectorPageState extends State<DetectorPage> {
     setState(() {
       _recognitions = recognitions;
     });
-    print(recognitions);
+//     print(recognitions);
     // print(recognitions[0]['detectedClass']);
   }
 
@@ -285,8 +277,7 @@ class _DetectorPageState extends State<DetectorPage> {
     if (_imageWidth == null || _imageHeight == null) return [];
     double factorX = (screen.width - 50);
     double factorY = _imageHeight / _imageWidth * (screen.width - 50);
-    //_imageHeight;
-
+    
     Color blue = Colors.blue;
 
     return _recognitions.map((re) {
@@ -408,7 +399,6 @@ class _DetectorPageState extends State<DetectorPage> {
                               child:
                                   Text("STATS", style: TextStyle(fontSize: 15)),
                             ),
-                            //   //-------------------------------------- DATA TABLE ----------------------------------------------
                             SingleChildScrollView(
                                 child: Container(
                                     padding: EdgeInsets.all(10.0),
@@ -418,7 +408,6 @@ class _DetectorPageState extends State<DetectorPage> {
                                               'assets/noobject.png',
                                               height: 100,
                                               width: 100,
-                                              // scale: 0.5,
                                             ),
                                             Text(
                                               'No Object Detected',
@@ -498,11 +487,6 @@ class _DetectorPageState extends State<DetectorPage> {
           onPressed: () => Navigator.pop(context, false),
         ),
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   child: Icon(Icons.camera),
-      //   tooltip: "Pick Image",
-      //   onPressed: selectFromImagePickerCAMERA(),
-      // ),
       body: Stack(children: stackChildren),
     );
   }
