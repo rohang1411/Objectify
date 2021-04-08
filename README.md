@@ -10,5 +10,5 @@ It's an object detection app that uses YOLOv2 Tiny model for prediction of appro
 ## Steps to run
 
 1. First run install.bat
-2. Open terminal in the repo directory and run ''' flutter pub get '''
-3. To create an APK file run ''' flutter build apk ''' and navigate to ''' build\app\outputs\flutter-apk '''
+2. Open terminal in the repo directory and run ```terminal flutter pub get ```
+3. To create an APK file run ``` flutter build apk ``` and navigate to ``` build\app\outputs\flutter-apk ```
